@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Registration</title>
+        <meta name="description" content="Registration page for Wish List">
+        {% load staticfiles %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4 col-md-offset-4">
+                    <form action="{% url 'login_index' %}" method="post">
+                        {% csrf_token %}
+                        <input class="btn btn-default" type="submit" value="Home">
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-4"></div>
+                <div class="col-xs-5">
+                    {% if messages %}
+                    <ul class="list-group">
+                        <li class="list-group-item list-group-item-danger">ATTENTION REQUIRED!</li>
+                        {% for message in messages %}
+                        <li class="list-group-item list-group-item-danger">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    <h2>REGISTER</h2>
+                    <form action="{% url 'login_registration' %}" method="POST" class="form-horizontal">
+                        {% csrf_token %}
+                        <div class="form-group">
+                        <label class="col-sm-3 control-label">Name</label>
+                        <div class="col-sm-9">
+                        <input type="text" name="name" class="form-control">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <label class="col-sm-3 control-label">Username</label>
+                        <div class="col-sm-9">
+                        <input type="text" name="username" class="form-control">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <label class="col-sm-8 control-label">*Password should be at least 8 characters</label></div>
+                        <div class="form-group">
+                        <label class="col-sm-3 control-label">Password</label>
+                        <div class="col-sm-9">
+                        <input type="password" name="password" class="form-control">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <label class="col-sm-3 control-label">Confirm Password</label>
+                        <div class="col-sm-9">
+                        <input type="password" name="confirm_password" class="form-control">
+                        </div>
+                        </div>
+                        <div class="form-group">
+                        <label class="col-sm-3 control-label">Date Hired:</label>
+                        <div class="col-sm-9">
+                        <input type="date" name="date_hired" class="form-control">
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 col-md-4"></div>
+                            <div class="col-xs-6 col-md-4"></div>
+                            <div class="col-xs-6 col-md-4"><input class="btn btn-default" id="submitbutton" type="submit" value="Register"></div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="col-xs-4"></div>
+            </div>
+        </div>
+    </body>
+</html>
