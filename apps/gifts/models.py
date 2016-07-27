@@ -18,7 +18,6 @@ class WishlistManager(models.Manager):
         if passFlag:
             loggedin = request.session['logged_in']
             wishmaker = User.objects.get(id=loggedin)
-            # wishcopier = User.objects.get(id=logged_in)
             wishlist = self.create(item = userInfo['item'], wishmaker_id = wishmaker)
         return [passFlag, errors]
 
